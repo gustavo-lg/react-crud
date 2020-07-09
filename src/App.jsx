@@ -11,17 +11,19 @@ import {
   } from "react-router-dom";
 import Home from './components/Home';
 import Add from './components/Add';
+import Edit from './components/Edit';
+import Remove from './components/Remove';
 
 
 const App = () => {
 
   return(
     <Router>
-        <Navbar bg="dark" defaultActiveKey="/" fluid collapseOnSelect>
+        <Navbar bg="dark" defaultActiveKey="home" fluid collapseOnSelect>
             <Nav>
                 <Nav.Item>
                     <Navbar.Brand>
-                        <Link to="/">Home</Link>
+                        <Link to="/" eventKey="home">Home</Link>
                     </Navbar.Brand>
                 </Nav.Item>
             </Nav>
@@ -46,20 +48,12 @@ const App = () => {
                 </Navbar.Collapse>
         </Navbar>    
 
-        <Switch>
-            <Route path="/">
-                <Home/>
-            </Route>
-            <Route path="/add">
-                <Add/>
-            </Route>
-            <Route path="/edit">
-               
-            </Route>
-            <Route path="/remove">
-                
-            </Route>
-        </Switch>
+     
+            <Route exact path="/"component={Home}/>
+            <Route path="/add" component={Add}/>
+            <Route path="/edit"component={Edit}/>
+            <Route path="/remove" component={Remove}/>
+        
     </Router>  
   );
 }
